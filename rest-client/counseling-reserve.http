@@ -1,0 +1,70 @@
+@baseUrl = {{$dotenv BASE_URL}}/counseling-reserve
+# guard: code
+
+### ----------------------------------------------------------------------------
+###                                   List (Screen No04)
+### ----------------------------------------------------------------------------
+# @name list
+GET {{baseUrl}}/?from=2023-07-14&count=7&type=1&noticeId=9
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+# Parameters available: from, count, type
+
+### ----------------------------------------------------------------------------
+###                                  Insert (Screen No05)
+### ----------------------------------------------------------------------------
+# @name insert
+POST {{baseUrl}}/
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+Content-Type: application/json
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+
+{
+  "doctorId": 2,
+  "reserveDate": "2023-08-16",
+  "reserveTimeFrom": "01:30",
+  "noticeId": 15
+}
+
+### ----------------------------------------------------------------------------
+###                                  Update (Screen No06)
+### ----------------------------------------------------------------------------
+# @name update
+PATCH {{baseUrl}}/
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+Content-Type: application/json
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+
+{
+  "oldDoctorId": 28,
+  "oldReserveDate": "2023-07-11",
+  "oldReserveTimeFrom": "00:00",
+  "doctorId": 35,
+  "reserveDate": "2023-07-12",
+  "reserveTimeFrom": "01:30",
+  "noticeId": 41
+}
+
+### ----------------------------------------------------------------------------
+###                            Cancel (Screen No54)
+### ----------------------------------------------------------------------------
+# @name cancel
+POST {{baseUrl}}/cancel
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+Content-Type: application/json
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+
+{
+  "reserveStatus": 1,
+  "cancelReason": "abcxyz",
+  "noticeId": 3
+}
+
+### ----------------------------------------------------------------------------
+###                      Check Complete Survey (Screen No04)
+### ----------------------------------------------------------------------------
+# @name check
+GET {{baseUrl}}/check-survey?noticeId=15
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+# Parameters available: noticeId

@@ -1,0 +1,160 @@
+@baseUrl = {{$dotenv BASE_URL}}/client
+# guard: user (table: m_user)
+
+### ----------------------------------------------------------------------------
+###                                   List (Screen No21)
+### ----------------------------------------------------------------------------
+# @name list
+GET {{baseUrl}}/?page=&itemsPerPage=&keyword=&orderSortBy=clientCode&orderBy=asc
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+# Parameters available: page, itemsPerPage, keyword
+
+### ----------------------------------------------------------------------------
+###                                  Insert (Screen No22)
+### ----------------------------------------------------------------------------
+# @name insert
+POST {{baseUrl}}/
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+Content-Type: application/json
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+
+{
+    "clientCode": "CODi1",
+    "clientStatus": 0,
+    "clientName": "Client Name",
+    "clientNameKana": "Client Name kana",
+    "keiyakuDate": "2023/08/09",
+    "postNumber": "9999999",
+    "chiikiCd": 2,
+    "todofuken": "11111",
+    "chikucyoson": "111111",
+    "tatemono": "111111",
+    "heyabango": "1111111",
+    "telNumber": "111111111",
+    "managers": [
+        { "name": "12b", "nameKana": "Manager 1", "mailAddr": "clientmana@sample.com", "contactTelnumber": "111111111" },
+        { "name": "12baaa", "nameKana": "Manager 1aaa", "mailAddr": "clientmanaaaa@sample.com", "contactTelnumber": "1111131111" }
+    ],
+    "apiKey": "1111111111111111111111111111",
+    "overtimeBorder": 10,
+    "basePriceFixed": 110,
+    "basePriceParuse": 120,
+    "excelPath": ""
+}
+
+### ----------------------------------------------------------------------------
+###                                  Update (Screen No23)
+### ----------------------------------------------------------------------------
+# @name update
+PATCH  {{baseUrl}}/7
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+Content-Type: application/json
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+
+{
+    "clientCode": "130aw",
+    "clientStatus": 0,
+    "clientName": "Client Name 8",
+    "clientNameKana": "Client Name kana",
+    "keiyakuDate": "2023/08/09",
+    "postNumber": "9999999",
+    "chiikiCd": 4,
+    "todofuken": "11111",
+    "chikucyoson": "111111",
+    "tatemono": "1111111",
+    "heyabango": "111111",
+    "telNumber": "111111111",
+    "managers": [
+        { "name": "12b", "nameKana": "Manager 12", "mailAddr": "clientmana@sample.com", "contactTelnumber": "111111111" },
+        { "name": "12baaa", "nameKana": "Manager 1aaa2", "mailAddr": "clientmanaaaa@sample.com", "contactTelnumber": "1111131111" }
+    ],
+    "apiKey": "1111111111111111111111111111",
+    "overtimeBorder": 13,
+    "basePriceFixed": 110,
+    "basePriceParuse": 120,
+    "excelPath": "{\"bucket\":\"storage-media-sangyoui\",\"key\":\"uploads/client/2023/09/05/dummy.xlsx\",\"location\":\"https://storage-media-sangyoui.s3.amazonaws.com/uploads/client/2023/09/05/dummy.xlsx\",\"status\":204}"
+}
+
+### ----------------------------------------------------------------------------
+###                   Get select, radio option (Screen No23)
+### ----------------------------------------------------------------------------
+# @name option
+GET {{baseUrl}}/option
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+
+### ----------------------------------------------------------------------------
+###                                  Show (Screen No23)
+### ----------------------------------------------------------------------------
+# @name show
+GET {{baseUrl}}/1
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+
+### ----------------------------------------------------------------------------
+###                                  Download Excel (No24)
+### ----------------------------------------------------------------------------
+# @name download
+GET {{baseUrl}}/download-excel
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+
+### ----------------------------------------------------------------------------
+###                                  Upload Excel (No24)
+### ----------------------------------------------------------------------------
+# @name upload
+POST {{baseUrl}}/upload-excel
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+
+### ----------------------------------------------------------------------------
+###                           Download Working Time Excel Clone (No39)
+### ----------------------------------------------------------------------------
+# @name download
+GET {{baseUrl}}/download-working-time-excel-clone
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+
+### ----------------------------------------------------------------------------
+###                           Download Working Time Excel (No39)
+### ----------------------------------------------------------------------------
+# @name download
+GET {{baseUrl}}/download-working-time-excel
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+
+### ----------------------------------------------------------------------------
+###                             Upload Working Time Excel Clone (No39)
+### ----------------------------------------------------------------------------
+# @name upload
+POST {{baseUrl}}/upload-working-time-excel
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+
+### ----------------------------------------------------------------------------
+###                             Upload Working Time Excel (No39)
+### ----------------------------------------------------------------------------
+# @name upload
+POST {{baseUrl}}/upload-working-time-excel-clone
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+
+### ----------------------------------------------------------------------------
+###                                   List (Screen No25)
+### ----------------------------------------------------------------------------
+# @name list
+GET {{baseUrl}}/counseling-reserve?page=&itemsPerPage=&keyword=&reserveDate=2023-08&orderSortBy=id&orderBy=asc
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+# Parameters available: page, itemsPerPage, keyword, reserveDate
+
+### ----------------------------------------------------------------------------
+###                                   Detail (Screen No26)
+### ----------------------------------------------------------------------------
+# @name detail
+GET {{baseUrl}}/counseling-reserve/11?reserveDate=2023-08
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+
+### ----------------------------------------------------------------------------
+###                                   Detail PDF (Screen No59)
+### ----------------------------------------------------------------------------
+# @name detailPdf
+GET {{baseUrl}}/counseling-reserve/11/scan-pdf?reserveDate=2023-08
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}

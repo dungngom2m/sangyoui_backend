@@ -1,0 +1,87 @@
+@baseUrl = {{$dotenv BASE_URL}}/sangyoi-schedule
+# guard: sangyoi (table: m_sangyoi)
+
+### ----------------------------------------------------------------------------
+###                                   List (Screen No44)
+### ----------------------------------------------------------------------------
+# @name list
+GET {{baseUrl}}/?from=2023-06-22&count=14
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+# Parameters available: from, to
+
+### ----------------------------------------------------------------------------
+###                                  Insert (Screen No45)
+### ----------------------------------------------------------------------------
+# @name insert
+POST {{baseUrl}}/
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+Content-Type: application/json
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+
+{
+  "scheduleDate": [
+    "2023-03-01",
+    "2023-03-05"
+  ],
+  "scheduleTimeFrom": {
+    "2023-03-01": [
+        {
+            "time": "12:30",
+            "color": "grey"
+        }
+    ],
+    "2023-03-05": [
+        {
+            "time": "01:30",
+            "color": "blue"
+        },
+        {
+            "time": "02:00",
+            "color": "blue"
+        }
+    ]
+  }
+}
+
+### ----------------------------------------------------------------------------
+###                                 Insert (Screen No69)
+### ----------------------------------------------------------------------------
+# dayOfWeek: 0 (sunday) ~ 6 (saturday)
+# monthOption: 0: 1 month, 1: 3 month, 2: 6 month, 3: 1 year
+# @name insert
+POST {{baseUrl}}/store-multi
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+Content-Type: application/json
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+
+{
+    "dayOfWeek": 6,
+    "monthOption": 0,
+    "timeFrom": "23:00",
+    "timeTo": "02:30"
+}
+
+### ----------------------------------------------------------------------------
+###                           Couseling Option (Screen NoXX)
+### ----------------------------------------------------------------------------
+# @name option
+GET {{baseUrl}}/cancel-option
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+
+### ----------------------------------------------------------------------------
+###                                  Cancel (Screen NoXX)
+### ----------------------------------------------------------------------------
+# @name cancel
+POST {{baseUrl}}/cancel
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+Content-Type: application/json
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+
+{
+    "counselingReserveId": 154,
+    "cancelDelayKbn": 0,
+    "cancelReasonKbn": 0,
+    "cancelReason": ""
+}

@@ -1,0 +1,32 @@
+@baseUrl = {{$dotenv BASE_URL}}/question-table
+# guard: code
+
+### ----------------------------------------------------------------------------
+###                       Send Forwarded Email Survey (Screen No50)
+### ----------------------------------------------------------------------------
+
+# @name send-mail
+POST {{baseUrl}}/send-forwarded-email-survey
+Content-Type: application/json
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+
+{
+  "mailaddr": "testforwork2710@gmail.com",
+  "token": "XJwnaCqt",
+  "noticeId": 10
+}
+
+### ----------------------------------------------------------------------------
+###                       Send Forwarded Email Interview (Screen No53)
+### ----------------------------------------------------------------------------
+
+# @name send-mail
+POST {{baseUrl}}/send-forwarded-email-interview
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+Content-Type: application/json
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+
+{
+  "mailaddr": "haiyen@m2m-vn.com",
+  "noticeId": 10
+}

@@ -1,0 +1,106 @@
+@baseUrl = {{$dotenv BASE_URL}}/client-employee
+# guard: clientUSer (table: m_client_user)
+
+### ----------------------------------------------------------------------------
+###                                   List (Screen No9)
+### ----------------------------------------------------------------------------
+# @name list
+GET {{baseUrl}}/?page=&itemsPerPage=&keyword=&orderSortBy=id&orderBy=asc
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+# Parameters available: page, itemsPerPage, keyword
+
+### ----------------------------------------------------------------------------
+###                                  Insert (Screen No12)
+### ----------------------------------------------------------------------------
+# @name insert
+POST {{baseUrl}}/
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+Content-Type: application/json
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+
+{
+  "employeeNumber": "12078",
+  "name": "Employee 3",
+  "nameKana": "Employee 3",
+  "employeeType": "Type 2",
+  "busho": "111111",
+  "yakushoku": "1111111",
+  "jigyosho": "11111",
+  "managers": [
+    { "id": "12b", "name": "Manager 1" },
+    { "id": "2", "name": "Manager 2" },
+    { "id": "3", "name": "Manager 3" },
+    { "id": "4", "name": "Manager 4" }
+  ],
+  "nyushaDate": "2023/02/15",
+  "sex": "1",
+  "smsNumber": "111-1111-1111",
+  "mailAddr": "",
+  "filePath": ""
+}
+
+### ----------------------------------------------------------------------------
+###                                  Delete (Screen No11)
+### ----------------------------------------------------------------------------
+# @name delete
+DELETE {{baseUrl}}/160
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+Content-Type: application/json
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+
+{
+  "retirementDate": "2023/02/15"
+}
+
+### ----------------------------------------------------------------------------
+###                                  Update (Screen No10)
+### ----------------------------------------------------------------------------
+# @name update
+PATCH  {{baseUrl}}/5
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+Content-Type: application/json
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+
+{
+  "employeeNumber": "121ru",
+  "name": "Employee 3",
+  "nameKana": "Employee 3",
+  "employeeType": "Type 2",
+  "busho": "111111",
+  "yakushoku": "1111111",
+  "jigyosho": "11111",
+  "managers": [
+    { "id": "1b", "name": "Manager b1" },
+    { "id": "2", "name": "Manager 2" },
+    { "id": "3", "name": "Manager 3" },
+    { "id": "4", "name": "Manager 4" }
+  ],
+  "nyushaDate": "2023/02/15",
+  "sex": "1",
+  "smsNumber": "111-1111-1123",
+  "mailAddr": "employee3@sample.com",
+  "filePath": ""
+}
+
+### ----------------------------------------------------------------------------
+###                                  Show
+### ----------------------------------------------------------------------------
+# @name show
+GET {{baseUrl}}/2
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+
+### ----------------------------------------------------------------------------
+###                                  Upload pdf (No55, 56)
+### ----------------------------------------------------------------------------
+# @name uploadPdf
+POST {{baseUrl}}/upload-pdf
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+
+### ----------------------------------------------------------------------------
+###                                  Get pdf file (No67)
+### ----------------------------------------------------------------------------
+# @name getPdfFile
+GET {{baseUrl}}/get-pdf-file/143
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}

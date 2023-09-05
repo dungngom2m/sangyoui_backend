@@ -1,0 +1,30 @@
+@baseUrl = {{$dotenv BASE_URL}}/question-answer
+# guard: code
+
+### ----------------------------------------------------------------------------
+###                                  Insert (Screen No3)
+### ----------------------------------------------------------------------------
+# @name insert
+POST {{baseUrl}}/
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+Content-Type: application/json
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+
+{
+    "clientStatus": 0,
+    "questionTitle": "最近1ヶ月間の自覚症状について、各質問に対し最も 当てはまる項目を選択してください",
+    "questionLev1No": 1,
+    "questionLev2No": 1,
+    "questionText": "イライラする",
+    "answerText": "時々ある",
+    "answerScore": 1,
+    "noticeId": 41
+}
+
+### ----------------------------------------------------------------------------
+###                                  Delete (Screen No52)
+### ----------------------------------------------------------------------------
+# @name delete
+DELETE {{baseUrl}}/10
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}

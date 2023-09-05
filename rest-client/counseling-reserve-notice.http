@@ -1,0 +1,51 @@
+@baseUrl = {{$dotenv BASE_URL}}/counseling-reserve-notice
+# guard: user (table: m_user)
+
+### ----------------------------------------------------------------------------
+###                                   List (Screen No20)
+### ----------------------------------------------------------------------------
+# @name list
+GET {{baseUrl}}/?page=&itemsPerPage=&keyword=&orderSortBy=id&orderBy=desc
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+# Parameters available: page, itemsPerPage, keyword
+
+### ----------------------------------------------------------------------------
+###                                   Detail (Screen No27)
+### ----------------------------------------------------------------------------
+# @name detail
+GET {{baseUrl}}/15
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+
+### ----------------------------------------------------------------------------
+###                                   Update (Screen No27)
+### ----------------------------------------------------------------------------
+# @name update
+PATCH {{baseUrl}}/17
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+Content-Type: application/json
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+
+{
+    "suiminSituation": 0,
+    "suiminSituationMemo": "",
+    "hirouSituation": 0,
+    "hirouSituationMemo": "",
+    "otherMemo": "111",
+    "syugyoTaisyoFuyoFlg": "1",
+    "shinshinKeizokuFlg": "1",
+    "shinshinKeizokuMemo": "1111111111",
+    "shinshinJushinFlg": "1",
+    "shinshinJushinMemo": "111111111",
+    "shinshinRenkeiFlg": "1",
+    "shinshinOtherFlg": "1",
+    "shinshinOtherMemo": "1111111",
+    "kinmujokyo1Flg": "1",
+    "kinmujokyo2Flg": "1",
+    "kinmujokyoOtherFlg": "1",
+    "kinmujokyoOtherMemo": "aaaaaaaaaaaaaaaaaa",
+    "tokkiMemo": "bbbbbbbbbbb",
+    "mensetsuIshiShozoku": "ccccccccccc",
+    "workSituation": "ddd"
+}

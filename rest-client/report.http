@@ -1,0 +1,58 @@
+@baseUrl = {{$dotenv BASE_URL}}/report
+# guard: clientUSer (type: clientUSer, table: m_client_user)
+
+### ----------------------------------------------------------------------------
+###                                   List (Screen No13)
+### ----------------------------------------------------------------------------
+# @name list
+GET {{baseUrl}}/?year=2023&month=07&orderSortBy=name&orderBy=asc
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+# Parameters available: year, month
+
+### ----------------------------------------------------------------------------
+###                                   Detail (Screen No14)
+### ----------------------------------------------------------------------------
+# @name detail
+GET {{baseUrl}}/4
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+
+### ----------------------------------------------------------------------------
+###                                   Update (Screen No14)
+### ----------------------------------------------------------------------------
+# @name update
+PATCH {{baseUrl}}/3
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+Content-Type: application/json
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+
+{
+    "suiminSituation": 0,
+    "suiminSituationMemo": "",
+    "hirouSituation": 0,
+    "hirouSituationMemo": "",
+    "syugyoTaisyoFuyoFlg": "1",
+    "shinshinKeizokuFlg": "1",
+    "shinshinKeizokuMemo": "1111111111",
+    "shinshinJushinFlg": "1",
+    "shinshinJushinMemo": "111111111",
+    "shinshinRenkeiFlg": "1",
+    "shinshinRenkeiMemo": "11111111",
+    "shinshinOtherFlg": "1",
+    "shinshinOtherMemo": "1111111",
+    "kinmujokyo1Flg": "1",
+    "kinmujokyo2Flg": "1",
+    "kinmujokyoOtherFlg": "1",
+    "kinmujokyoOtherMemo": "aaaaaaaaaaaaaaaaaa",
+    "tokkiMemo": "bbbbbbbbbbb",
+    "mensetsuIshiShozoku": "ccccccccccc",
+    "sangyoiIken": "ddd",
+    "sochiNaiyo": "ddd",
+    "iryokikanName": "ddd",
+    "kanrishaName": "ddd",
+    "jigyoshaName": "dddd",
+    "ikenUpdateDate": "1111-11-11",
+    "ikenUpdatePersonName": "aaa",
+    "sochiUpdateDate": ""
+}

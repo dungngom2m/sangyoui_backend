@@ -1,0 +1,30 @@
+@baseUrl = {{$dotenv BASE_URL}}/user-company
+# guard: user (table: m_user)
+
+### ----------------------------------------------------------------------------
+###                                  Update (Screen No35)
+### ----------------------------------------------------------------------------
+# @name update
+PATCH  {{baseUrl}}/
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+Content-Type: application/json
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+
+{
+    "userCompanyName": "ABC Company",
+    "userCompanyNameKana": "Kana",
+    "postNumber": "1234567",
+    "todofuken": "1111",
+    "shikucyoson": "11111",
+    "heyabango": "9999999",
+    "tatemono": "11111",
+    "telNumber": "098711111"
+}
+
+### ----------------------------------------------------------------------------
+###                                  Show (Screen No35)
+### ----------------------------------------------------------------------------
+# @name show
+GET {{baseUrl}}/
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}

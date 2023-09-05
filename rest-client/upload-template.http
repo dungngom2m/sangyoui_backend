@@ -1,0 +1,58 @@
+@baseUrl = {{$dotenv BASE_URL}}/upload-template
+# guard: user (table: m_user)
+
+### ----------------------------------------------------------------------------
+###                              Upload Client Template Excel
+### ----------------------------------------------------------------------------
+# @name upload
+POST {{baseUrl}}/社員データ一括取込
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="excelFile"; filename="社員データ一括取込.xlsx"
+
+< ./assets/社員データ一括取込.xlsx
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+### ----------------------------------------------------------------------------
+###                            Upload Sangyoi Template Excel
+### ----------------------------------------------------------------------------
+# @name upload
+POST {{baseUrl}}/産業医データ一括取込
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="excelFile"; filename="産業医データ一括取込.xlsx"
+
+< ./assets/産業医データ一括取込.xlsx
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+### ----------------------------------------------------------------------------
+###                           Upload Working Time Template Excel
+### ----------------------------------------------------------------------------
+# @name upload
+POST {{baseUrl}}/残業時間超過社員データ取込
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="excelFile"; filename="残業時間超過社員データ取込.xlsx"
+
+< ./assets/残業時間超過社員データ取込.xlsx
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+### ----------------------------------------------------------------------------
+###                           Upload Working Time Template 2 Excel
+### ----------------------------------------------------------------------------
+# @name upload
+POST {{baseUrl}}/勤怠データフォーマット
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="excelFile"; filename="勤怠データフォーマット.xlsx"
+
+< ./assets/勤怠データフォーマット.xlsx
+------WebKitFormBoundary7MA4YWxkTrZu0gW--

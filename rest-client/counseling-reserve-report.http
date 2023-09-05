@@ -1,0 +1,22 @@
+@baseUrl = {{$dotenv BASE_URL}}/counseling-reserve-report
+# guard: sangyoi (table: m_sangyoi)
+
+### ----------------------------------------------------------------------------
+###                                   List (Screen No71)
+### ----------------------------------------------------------------------------
+# @name list
+GET {{baseUrl}}/?reserveDate=2023-08&orderSortBy=id&orderBy=asc
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+# Parameters available: reserveDate
+
+### ----------------------------------------------------------------------------
+###                                   List (Screen No65)
+### ----------------------------------------------------------------------------
+# @name list
+GET {{baseUrl}}/scan-pdf?reserveDate=2023-08
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+# Parameters available: reserveDate
+
+

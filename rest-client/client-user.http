@@ -1,0 +1,35 @@
+@baseUrl = {{$dotenv BASE_URL}}/client-user
+# guard: clientUSer (type: clientUSer, table: m_client_user)
+
+### ----------------------------------------------------------------------------
+###                                   List (Screen No16)
+### ----------------------------------------------------------------------------
+# @name list
+GET {{baseUrl}}/?page=&itemsPerPage=&keyword=&orderSortBy=id&orderBy=asc
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+# Parameters available: page, itemsPerPage, keyword
+
+### ----------------------------------------------------------------------------
+###                                  Insert (Screen No17)
+### ----------------------------------------------------------------------------
+# @name insert
+POST {{baseUrl}}/
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+Content-Type: application/json
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+
+{
+  "name": "User 3",
+  "nameKana": "User 3",
+  "mailAddr": "test1@sample.co6um"
+}
+
+### ----------------------------------------------------------------------------
+###                                  Delete (Screen No18)
+### ----------------------------------------------------------------------------
+# @name delete
+DELETE {{baseUrl}}/35
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+Content-Type: application/json
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}

@@ -1,0 +1,57 @@
+@baseUrl = {{$dotenv BASE_URL}}/kihoninf-hospital
+# guard: code
+
+### ----------------------------------------------------------------------------
+###                                  Insert (Screen No5)
+### ----------------------------------------------------------------------------
+# @name insert
+POST {{baseUrl}}/
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+Content-Type: application/json
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+
+{
+    "hospitalName": "Hos name 1",
+    "department": "Deparment 1",
+    "employeeNo": "No 1",
+    "name": "Name 1",
+    "nameKana": "Kana 1",
+    "birthdayYear": 2023,
+    "birthdayMonth": 12,
+    "birthdayDay": 10,
+    "sex": 0,
+    "jikangaiKbnLastmonth": 0,
+    "intervalLow9FlgLastmonthGroup": [1, 2],
+    "jikangaiKbn": 0,
+    "intervalLow9FlgGroup": [1, 2],
+    "busyKbn": 0,
+    "oncallCnt": 0,
+    "tocyokuCnt": 0,
+    "niccyokuCnt": 0,
+    "tukinHour": 0,
+    "tukinMin": 0,
+    "tukinKbn": 0,
+    "fukugyoHour": 0,
+    "fukugyoTukinHour": 0,
+    "fukugyoTukinMin": 0,
+    "suiminHourWdKbn": 0,
+    "suiminHourHdKbn": 0,
+    "kisyoDiffHourKbn": 0,
+    "holidayCntLastmonth": 0,
+    "holidayCntFumeiFlg": "0",
+    "yukyuKbn": 0,
+    "doctorFusokuFlgGroup": [1, 5, 7],
+    "otherMemo9": "jakshdkfhskfhsjkfhksa",
+    "ryoritsuFlgGroup": [1, 2, 3],
+    "otherMemo10": "askdufhksdhfksjdhafks",
+    "chiryoKbn": 0,
+    "chiryoMemo": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "sochiKbn": 0,
+    "insyuKbn": 0,
+    "kitsuenKbn": 0,
+    "tokkiNoneFlgGroup": [1, 2, 3],
+    "otherMemo12": "kkkkkkkkkkkkkkkkk",
+    "memo": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "noticeId": 3
+}
+

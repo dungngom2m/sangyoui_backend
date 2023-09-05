@@ -1,0 +1,38 @@
+@baseUrl = {{$dotenv BASE_URL}}/questionnaire
+# guard: code
+
+### ----------------------------------------------------------------------------
+###                                   List (Screen No3)
+### ----------------------------------------------------------------------------
+# @name list
+GET {{baseUrl}}/
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+
+### ----------------------------------------------------------------------------
+###                                  Insert (Screen No?)
+### ----------------------------------------------------------------------------
+# @name insert
+POST {{baseUrl}}/
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+Content-Type: application/json
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+
+{
+  "questionLev1No": "5",
+  "questionLev2No": "1",
+  "questionTitle": "Question 1",
+  "questionText": "Dan can _____ the drum very well.",
+  "answerText1": "play",
+  "answerText2": "do",
+  "answerText3": "make",
+  "answerText4": "think"
+}
+
+### ----------------------------------------------------------------------------
+###                                   List (Screen No3, No5)
+### ----------------------------------------------------------------------------
+# @name list
+GET {{baseUrl}}/get-name/?id=12
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}

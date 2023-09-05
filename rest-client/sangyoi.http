@@ -1,0 +1,238 @@
+@baseUrl = {{$dotenv BASE_URL}}/sangyoi
+# guard: user (table: m_user)
+
+### ----------------------------------------------------------------------------
+###                                   List (Screen No30)
+### ----------------------------------------------------------------------------
+# @name list
+GET {{baseUrl}}/?page=&itemsPerPage=&keyword=&orderSortBy=id&orderBy=asc
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+# Parameters available: page, itemsPerPage, keyword
+
+### ----------------------------------------------------------------------------
+###                   Get select, radio option (Screen No28, 31)
+### ----------------------------------------------------------------------------
+# @name option
+GET {{baseUrl}}/option
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+
+### ----------------------------------------------------------------------------
+###                                  Insert (Screen No28)
+### ----------------------------------------------------------------------------
+# @name insert
+POST {{baseUrl}}/
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+Content-Type: application/json
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+
+{
+    "name": "Name 1",
+    "nameKana": "Kana 1",
+    "birthday": "1999/09/09",
+    "sex": "1",
+    "postNumber": "1234567",
+    "chiikiCd": 1,
+    "todofuken": "1234567",
+    "shikucyoson": "11111",
+    "tatemono": "1111111",
+    "heyabango": "1111111",
+    "shoruiFlg": "0",
+    "shoruiPostNumber": 1,
+    "shoruiTodofuken": "111111",
+    "shoruiShikucyoson": "11111111",
+    "shoruiTatemono": "111111",
+    "shoruiHeyabango": "111111",
+    "contactMailaddr": "sangyoi21y1@ysample.com",
+    "contactTelnumber": "111111111",
+    "shozokuKbn": "0",
+    "shozoku": "1",
+    "shozokuBusho": "1111",
+    "clinicalDepartment": "11111",
+    "keiyakuKbn": "0",
+    "kyuyoKbn": "0",
+    "price1": 299,
+    "price2": 399,
+    "ginkoName": "111111",
+    "ginkoShitenName": "111111",
+    "ginkoShitenNameKana": "333",
+    "kozaType": "0",
+    "kozaNameKana": "1234567",
+    "kozaNumber": "1234567",
+    "invoiceNumber": "1234567",
+    "shoushoNumber": "1234567",
+    "nihonishiLicenseFlg": "0",
+    "sangyoiDiplomaLicenseFlg": "0",
+    "consultantLicenseFlg": "0",
+    "otherLicenseFlg": "0",
+    "otherLicenseMemo": "memooooooooooo",
+    "sangyoiExperience": "0",
+    "counselingExperience": "0",
+    "clinicalExperience": "0",
+    "zoomAccountId": "mTOpVWnWRc-I2yNH9AHIEQ",
+    "zoomClientId": "DKq_NkdDRO2ZyijjWATexQ",
+    "zoomClientSecret": "8F5vx2mNOTUKzVVnnyHLagS1rTkTSkgJ",
+    "zoomMailaddr": "1234567",
+    "memo": "1234567",
+    "shoushoFilePath": "uploads/sangyoi/2023/6/15/dSm3jvtMQTnmoPXclozdk8iHTSKmiXSZPmuvx4fn.pdf"
+}
+
+### ----------------------------------------------------------------------------
+###                                  Update (Screen No31)
+### ----------------------------------------------------------------------------
+# @name update
+PATCH {{baseUrl}}/3
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+Content-Type: application/json
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+
+{
+    "name": "Name 1",
+    "nameKana": "Kana 1",
+    "birthday": "1999/09/09",
+    "sex": "1",
+    "postNumber": "1234567",
+    "chiikiCd": 1,
+    "todofuken": "1234567",
+    "shikucyoson": "11111",
+    "tatemono": "1111111",
+    "heyabango": "1111111",
+    "shoruiFlg": "0",
+    "shoruiPostNumber": 1,
+    "shoruiTodofuken": "111111",
+    "shoruiShikucyoson": "11111111",
+    "shoruiTatemono": "111111",
+    "shoruiHeyabango": "111111",
+    "contactMailaddr": "sangyoi111aaa@sample.com",
+    "contactTelnumber": "111111111",
+    "shozokuKbn": "0",
+    "shozoku": "1",
+    "shozokuBusho": "1111",
+    "clinicalDepartment": "11111",
+    "keiyakuKbn": "0",
+    "kyuyoKbn": "0",
+    "price1": 299,
+    "price2": 399,
+    "ginkoName": "111111",
+    "ginkoShitenName": "111111",
+    "ginkoShitenNameKana": "333",
+    "kozaType": "0",
+    "kozaNameKana": "1234567",
+    "kozaNumber": "1234567",
+    "invoiceNumber": "1234567",
+    "shoushoNumber": "1234567",
+    "nihonishiLicenseFlg": "0",
+    "sangyoiDiplomaLicenseFlg": "0",
+    "consultantLicenseFlg": "0",
+    "otherLicenseFlg": "0",
+    "otherLicenseMemo": "memooooooooooo",
+    "sangyoiExperience": "0",
+    "counselingExperience": "0",
+    "clinicalExperience": "0",
+    "zoomAccountId": "mTOpVWnWRc-I2yNH9AHIQ",
+    "zoomClientId": "DKq_NkdDRO2ZyijjWATexQ",
+    "zoomClientSecret": "8F5vx2mNOTUKzVVnnyHLagS1rTkTSkgJ",
+    "zoomMailaddr": "1234567",
+    "memo": "1234567",
+    "shoushoFilePath": "{\"bucket\":\"storage-media-sangyoui\",\"key\":\"uploads/client-employee/2023/09/03/sample.pdf\",\"location\":\"https://storage-media-sangyoui.s3.amazonaws.com/uploads/client-employee/2023/09/03/sample.pdf\",\"status\":204}"
+}
+
+### ----------------------------------------------------------------------------
+###                                  Show (Screen No31)
+### ----------------------------------------------------------------------------
+# @name show
+GET {{baseUrl}}/3
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+
+### ----------------------------------------------------------------------------
+###                         Upload pdf (No28, No31, No66) - Not use
+### ----------------------------------------------------------------------------
+# @name uploadPdf
+POST {{baseUrl}}/upload-pdf
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+
+### ----------------------------------------------------------------------------
+###                                  Download Excel (No29)
+### ----------------------------------------------------------------------------
+# @name download
+GET {{baseUrl}}/download-excel
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+
+### ----------------------------------------------------------------------------
+###                                  Upload Excel (No29)
+### ----------------------------------------------------------------------------
+# @name uploadExcel
+POST {{baseUrl}}/upload-excel
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+Content-Type: application/json
+
+{
+    "excelFile": "{\"bucket\":\"storage-media-sangyoui\",\"key\":\"uploads/sangyoi/2023/09/05/dummy_sangyoi.xlsx\",\"location\":\"https://storage-media-sangyoui.s3.amazonaws.com/uploads/sangyoi/2023/09/05/dummy_sangyoi.xlsx\",\"status\":204}"
+}
+
+### ----------------------------------------------------------------------------
+###                        Payment Summary List (Screen No33)
+### ----------------------------------------------------------------------------
+# @name list
+GET {{baseUrl}}/payment-summary?page=&itemsPerPage=&keyword=&reserveDate=2023-08&orderSortBy=id&orderBy=asc
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+# Parameters available: page, itemsPerPage, keyword, reserveDate
+
+### ----------------------------------------------------------------------------
+###                        Payment Summary Detail (Screen No34)
+### ----------------------------------------------------------------------------
+# @name detail
+GET {{baseUrl}}/payment-summary/2?reserveDate=2023-08
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+
+### ----------------------------------------------------------------------------
+###                        Payment Summary Detail PDF (Screen No65)
+### ----------------------------------------------------------------------------
+# @name detailPdf
+GET {{baseUrl}}/payment-summary/2/scan-pdf?reserveDate=2023-08
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+
+### ----------------------------------------------------------------------------
+###                                  Show (Screen No63)
+### ----------------------------------------------------------------------------
+# @name show
+GET {{baseUrl}}/maching-ng/28?orderSortBy=clientCode&orderBy=asc
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+
+### ----------------------------------------------------------------------------
+###                                  Store (Screen No63)
+### ----------------------------------------------------------------------------
+# @name store
+POST {{baseUrl}}/maching-ng
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+Content-Type: application/json
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+
+{
+    "sangyoiId": 2,
+    "clientIds": []
+}
+
+### ----------------------------------------------------------------------------
+###                                   List (Screen No32)
+### ----------------------------------------------------------------------------
+# @name list
+GET {{baseUrl}}/schedule?from=2023-09-02&count=7&doctorId=&keyword=&orderSortBy=id&orderBy=asc
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+# Parameters available: from, count, doctorId
+
+### ----------------------------------------------------------------------------
+###                                   Detail (Screen No64)
+### ----------------------------------------------------------------------------
+# @name detail
+GET {{baseUrl}}/schedule/detail?scheduleDate=2023-06-22&scheduleTimeFrom=00:00
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+# Parameters available: scheduleDate, scheduleTimeFrom

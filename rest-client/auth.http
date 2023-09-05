@@ -1,0 +1,106 @@
+@baseUrl = {{$dotenv BASE_URL}}/auth
+
+### ----------------------------------------------------------------------------
+###                                   Login Client User (Screen No8, No40, No19)
+### ----------------------------------------------------------------------------
+
+# @name login
+# type: if (clientUSer (table: m_client_user)), else if (sangyoi (m_sangyoi)), else (table: m_user)
+POST {{baseUrl}}/login
+Content-Type: application/json
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+
+# {
+#   "type": "sangyoi",
+#   "mailaddr": "nguyenhaiyenkm11@gmail.com",
+#   "password": "Yen111"
+# }
+
+# {
+#   "type": "clientUser",
+#   "mailaddr": "haiyen@m2m-vn.com",
+#   "password": "Yen111"
+# }
+
+{
+  "mailaddr": "yenesnguyen711@gmail.com",
+  "password": "Yen111"
+}
+
+### ----------------------------------------------------------------------------
+###                                   Me
+### ----------------------------------------------------------------------------
+
+# @name me
+# type: if (clientUSer (table: m_client_user)), else if (sangyoi (m_sangyoi)), else (table: m_user)
+GET {{baseUrl}}/me?type=clientUser
+Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+
+### ----------------------------------------------------------------------------
+###                                   Find Password (Screen No47)
+### ----------------------------------------------------------------------------
+
+# @name find-password
+# type: clientUSer (table: m_client_user), sangyoi (table: m_sangyoi), else (table: m_user)
+POST {{baseUrl}}/find-password
+Content-Type: application/json
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+
+# {
+#   "mailaddr": "haiyen@m2m-vn.com",
+#   "type": "clientUser"
+# }
+
+{
+  "mailaddr": "nguyenhaiyenkm11@gmail.com",
+  "type": "sangyoi"
+}
+
+# {
+#   "mailaddr": "admin@sample.com",
+#   "type": "user"
+# }
+
+
+
+### ----------------------------------------------------------------------------
+###                                   Reset Password (Screen No48)
+### ----------------------------------------------------------------------------
+
+# @name reset-password
+# type: clientUSer (table: m_client_user), sangyoi (table: m_sangyoi), else (table: m_user)
+POST {{baseUrl}}/reset-password
+Content-Type: application/json
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+
+{
+  "type": "clientUser",
+  "token": "k8C8xOfhqUoiTkxNwHIurFJ6ZuR1XgcR",
+  "password": "111111"
+}
+
+# {
+#   "type": "sangyoi",
+#   "token": "Jy4A7HiOM4wsKmPn3CNTrYmXoZvBGX0q",
+#   "password": "111111"
+# }
+
+# {
+#   "type": "sangyoi",
+#   "token": "4hlgt74ZaSidX37xxWGzOfIb0fohbkUr",
+#   "password": "111111"
+# }
+
+### ----------------------------------------------------------------------------
+###                                   Test send mail
+### ----------------------------------------------------------------------------
+
+# @name test-mail
+POST {{baseUrl}}/test-send-mail
+Content-Type: application/json
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+
+{
+  "mailaddr": "admin@sample.com"
+}

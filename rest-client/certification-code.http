@@ -1,0 +1,27 @@
+@baseUrl = {{$dotenv BASE_URL}}/certification-code
+
+### ----------------------------------------------------------------------------
+###                                  Insert (Screen No1)
+### ----------------------------------------------------------------------------
+# @name insert
+POST {{baseUrl}}/
+Content-Type: application/json
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+
+{
+  "smsNumber": "11111111114",
+  "noticeId": 15
+}
+
+### ----------------------------------------------------------------------------
+###                                  Verify (Screen No2)
+### ----------------------------------------------------------------------------
+# @name verify
+POST {{baseUrl}}/verify
+Content-Type: application/json
+X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
+
+{
+  "certificationCode": "9513"
+}
+
