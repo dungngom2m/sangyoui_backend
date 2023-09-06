@@ -44,7 +44,7 @@ X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
     "shoruiShikucyoson": "11111111",
     "shoruiTatemono": "111111",
     "shoruiHeyabango": "111111",
-    "contactMailaddr": "sangyoi21y1@ysample.com",
+    "contactMailaddr": "sangyoi21yggdd1@ysample.com",
     "contactTelnumber": "111111111",
     "shozokuKbn": "0",
     "shozoku": "1",
@@ -75,7 +75,7 @@ X-Amz-Security-Token: {{$dotenv AUTHORRIZATION_TOKEN}}
     "zoomClientSecret": "8F5vx2mNOTUKzVVnnyHLagS1rTkTSkgJ",
     "zoomMailaddr": "1234567",
     "memo": "1234567",
-    "shoushoFilePath": "uploads/sangyoi/2023/6/15/dSm3jvtMQTnmoPXclozdk8iHTSKmiXSZPmuvx4fn.pdf"
+    "shoushoFilePath": "{\"bucket\":\"storage-media-sangyoui\",\"key\":\"uploads/client-employee/2023/09/03/sample.pdf\",\"location\":\"https://storage-media-sangyoui.s3.amazonaws.com/uploads/client-employee/2023/09/03/sample.pdf\",\"status\":204}"
 }
 
 ### ----------------------------------------------------------------------------
@@ -169,7 +169,7 @@ Authorization: Bearer {{$dotenv ACCESS_TOKEN}}
 Content-Type: application/json
 
 {
-    "excelFile": "{\"bucket\":\"storage-media-sangyoui\",\"key\":\"uploads/sangyoi/2023/09/05/dummy_sangyoi.xlsx\",\"location\":\"https://storage-media-sangyoui.s3.amazonaws.com/uploads/sangyoi/2023/09/05/dummy_sangyoi.xlsx\",\"status\":204}"
+    "excelFile": "{\"bucket\":\"storage-media-sangyoui\",\"key\":\"uploads/sangyoi/2023/09/06/dummy_sangyoi.xlsx\",\"location\":\"https://storage-media-sangyoui.s3.amazonaws.com/uploads/sangyoi/2023/09/06/dummy_sangyoi.xlsx\",\"status\":204}"
 }
 
 ### ----------------------------------------------------------------------------

@@ -155,7 +155,7 @@ class MSangyoi extends Authenticatable implements JWTSubject
 		'shousho_file_path',
 		'memo',
 		'password',
-        'zoom_account_id'.
+        'zoom_account_id',
 		'zoom_client_id',
 		'zoom_client_secret',
 		'zoom_mailaddr',
